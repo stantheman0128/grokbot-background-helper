@@ -13,7 +13,7 @@ How it works:
 - Per-monitor DPI aware (V2) so it works with real screen pixels at 125%/150%/... scaling (an early version broke at 150%).
 - Every second it finds the app's main window (title + `Chrome_WidgetWin_1` class + process name) and locates the Close button by hit-testing the title bar with `WM_NCHITTEST` (`HTCLOSE`).
 - A low-level mouse hook swallows mouse down/up on that rect; a keyboard hook swallows Alt+F4 when the app is foreground. Instead of closing, the window is hidden (`SW_HIDE`, also off the taskbar).
-- Tray icon: double-click / **Show**, **Quit <app>** (real quit), **Exit helper**.
+- Tray icon: single left-click (or **Show**) restores the window; right-click menu has **Quit <app>** (real quit) and **Exit helper**. Tooltip shows just the app name (`AppName` in `helper.ini`).
 - Watchdog: if the main *window* is gone for ≥2 s and you didn't choose Quit, the app is relaunched and hidden. (It checks the window, not the process name — leftover child processes fooled a process-based check.)
 - Logs to `helper.log` and `status.txt` next to the exe.
 

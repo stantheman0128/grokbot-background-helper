@@ -42,11 +42,11 @@ class GrokBotTray : ApplicationContext {
   static void Log(string s){ try{ File.AppendAllText(Path.Combine(Dir,"helper.log"),DateTime.Now.ToString("s")+" "+s+"\r\n"); }catch{} }
   GrokBotTray(){
     tray=new NotifyIcon(); try{ tray.Icon=Icon.ExtractAssociatedIcon(ExePath);}catch{ tray.Icon=SystemIcons.Application; }
-    tray.Text=(AppName+" (background helper)").Length>63?"background helper":AppName+" (background helper)"; var m=new ContextMenuStrip();
+    tray.Text=AppName.Length>63?AppName.Substring(0,63):AppName; var m=new ContextMenuStrip();
     m.Items.Add("Show "+AppName,null,(s,e)=>ShowGrok());
     m.Items.Add("Quit "+AppName,null,(s,e)=>QuitGrok());
     m.Items.Add("Exit helper",null,(s,e)=>ExitHelper());
-    tray.ContextMenuStrip=m; tray.DoubleClick+=(s,e)=>ShowGrok(); tray.Visible=true;
+    tray.ContextMenuStrip=m; tray.MouseClick+=(s,e)=>{ if(e.Button==MouseButtons.Left) ShowGrok(); }; tray.Visible=true;
     mProc=MouseHook; kProc=KeyHook; IntPtr mod=GetModuleHandle(null);
     mHook=SetWindowsHookEx(14,mProc,mod,0); kHook=SetWindowsHookEx(13,kProc,mod,0);
     timer=new System.Windows.Forms.Timer(); timer.Interval=1000; timer.Tick+=(s,e)=>Tick(); timer.Start(); Log("started"); Tick();

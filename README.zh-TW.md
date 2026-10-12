@@ -13,7 +13,7 @@ Windows 上 Grok Bot（Electron）關掉最後一個視窗就會結束程式，�
 - 支援每台螢幕各自的 DPI（Per-Monitor V2），150% 等縮放下用真實像素座標（第一版就是壞在 150%）。
 - 每秒找到主視窗，用 `WM_NCHITTEST`（`HTCLOSE`）在標題列上探測出關閉按鈕的範圍。
 - 全域滑鼠 hook 吞掉落在該範圍的按下／放開；鍵盤 hook 吞掉 Alt+F4。改成把視窗隱藏（`SW_HIDE`，工作列也不顯示）。
-- 系統匣：雙擊或「Show」叫回、「Quit」真正關閉 App、「Exit helper」結束小工具。
+- 系統匣：左鍵點一下（或「Show」）叫回視窗；右鍵選單有「Quit」真正關閉 App、「Exit helper」結束小工具。滑鼠移上去只顯示 App 名稱（`helper.ini` 的 `AppName`）。
 - 看門狗：主視窗消失 ≥2 秒且不是你按 Quit，就自動重開並隱藏。（看的是視窗而非程序名稱，因為殘留子程序曾騙過程序檢查。）
 - 紀錄寫在 exe 旁的 `helper.log`、`status.txt`。
 
