@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Background Helper logo">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient></defs>
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#g)"/>
+  <rect x="22" y="28" width="84" height="58" rx="8" fill="#fff" opacity="0.95"/>
+  <rect x="22" y="28" width="84" height="14" rx="8" fill="#e0e7ff"/>
+  <path d="M90 31l6 6M96 31l-6 6" stroke="#ef4444" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M70 56a14 14 0 1 0 14 18a11 11 0 1 1 -14 -18z" fill="#4f46e5"/>
+  <rect x="30" y="96" width="68" height="12" rx="6" fill="#fff" opacity="0.35"/>
+  <circle cx="86" cy="102" r="3.5" fill="#fff"/>
+</svg>
